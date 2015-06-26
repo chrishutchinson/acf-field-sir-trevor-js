@@ -49,10 +49,10 @@ function actionEnqueueScripts() {
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'eventable', plugins_url( dirname(plugin_basename(__FILE__)) . '/js/vendor/eventable/eventable.js' , dirname(__FILE__) ) );
 	wp_enqueue_script( 'underscore', plugins_url( dirname(plugin_basename(__FILE__)) . '/js/vendor/underscore/underscore.js' , dirname(__FILE__) ) );
-	wp_enqueue_script( 'sir-trevor-js', plugins_url( dirname(plugin_basename(__FILE__)) . '/js/vendor/sir-trevor/sir-trevor.js' , dirname(__FILE__) ), array( 'jquery', 'underscore', 'eventable' ) );
+	wp_enqueue_script( 'sir-trevor-js', plugins_url( dirname(plugin_basename(__FILE__)) . '/js/vendor/sir-trevor/sir-trevor.min.js' , dirname(__FILE__) ), array( 'jquery', 'underscore', 'eventable' ) );
 
-	wp_enqueue_style( 'sir-trevor-js', plugins_url( dirname(plugin_basename(__FILE__)) . '/css/vendor/sir-trevor/sir-trevor.css' , dirname(__FILE__) ));
 	wp_enqueue_style( 'sir-trevor-js-icons', plugins_url( dirname(plugin_basename(__FILE__)) . '/css/vendor/sir-trevor/sir-trevor-icons.css' , dirname(__FILE__) ));
+	wp_enqueue_style( 'sir-trevor-js', plugins_url( dirname(plugin_basename(__FILE__)) . '/css/vendor/sir-trevor/sir-trevor.css' , dirname(__FILE__) ));
 }
 
 function wpAjaxAcfSirTrevorNonce() {

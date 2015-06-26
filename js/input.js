@@ -2,73 +2,14 @@
 	
 	
 	function initialize_field( $el ) {
-
-		SirTrevor.FileUploader = function() {
-			console.log('wow');
-		};
-
-		// Adds a Caption Field to the Image Block
-		SirTrevor.Blocks.Customimage = SirTrevor.Block.extend({
-
-			  type: "customimage",
-			  title: function() { return 'New Image'; },
-
-			  droppable: true,
-			  uploadable: true,
-
-			  icon_name: 'image',
-
-			  loadData: function(data){
-			    // Create our image tag
-			    this.$editor.html($('<img>', { src: data.file.url }));
-			  },
-
-			  onBlockRender: function(){
-			    /* Setup the upload button */
-			    this.$inputs.find('button').bind('click', function(ev){ ev.preventDefault(); });
-			    this.$inputs.find('input').on('change', (function(ev) {
-			      this.onDrop(ev.currentTarget);
-			    }).bind(this));
-			  },
-
-			  onDrop: function(transferData){
-			    var file = transferData.files[0],
-			        urlAPI = (typeof URL !== "undefined") ? URL : (typeof webkitURL !== "undefined") ? webkitURL : null;
-
-			    // Handle one upload at a time
-			    if (/image/.test(file.type)) {
-			      this.loading();
-			      // Show this image on here
-			      this.$inputs.hide();
-			      this.$editor.html($('<img>', { src: urlAPI.createObjectURL(file) })).show();
-
-			      this.uploader(
-			        file,
-			        function(data) {
-			        	console.log(data);
-			          this.setData(data);
-			          this.ready();
-			        },
-			        function(error) {
-			        	console.error(error);
-			          this.addMessage(i18n.t('blocks:image:upload_error'));
-			          this.ready();
-			        }
-			      );
-			    }
-			  }
-		});
-		
 		new SirTrevor.Editor({
 			el: $el.find('.js-st-instance'),
-			blockTypes: ['Text', 'Heading', 'List', 'Customimage']
+			blockTypes: ['Text', 'Heading', 'List', 'Video', 'Quote'] // @TODO: Make it so these can be configured via a setting
 		});
-		console.log(SirTrevor.FileUploader);
 
 		SirTrevor.setDefaults({
 			uploadUrl: '/wp-admin/media-new.php'
 		});
-		console.log(SirTrevor.FileUploader);
 	}
 	
 	

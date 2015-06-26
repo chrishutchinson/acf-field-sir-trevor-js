@@ -369,7 +369,7 @@ class acf_field_sir_trevor_js extends acf_field {
 
 		// apply setting
 		if( $field['output_type'] === 'json' ) { 
-			return $value;
+			return $value['data'];
 		}
 
 		$html = '';
@@ -383,6 +383,16 @@ class acf_field_sir_trevor_js extends acf_field {
 					break;
 				case 'quote':
 					$html .= $block['data']['text'] . '<cite>' . $block['data']['cite'] . '</cite>';
+					break;
+				case 'video':
+					switch($block['data']['source']) {
+						case 'youtube':
+							$html = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . $block['data']['remote_id'] . '" frameborder="0" allowfullscreen></iframe>';
+							break;
+					}
+					break;
+				case 'list':
+					$html .= strip_tags($block['data']['text'], '<ul><li><b><strong><em>');
 					break;
 			}
 		}

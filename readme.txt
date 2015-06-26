@@ -2,22 +2,27 @@
 Contributors: Chris Hutchinson
 Tags: acf, sir trevor js, content
 Requires at least: 3.5
-Tested up to: 3.8.1
+Tested up to: 4.2.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-SHORT_DESCRIPTION
+Adds Sir Trevor JS as a field type for Advanced Custom Fields (ACF) in WordPress.
 
 == Description ==
 
-EXTENDED_DESCRIPTION
+Currently works with:
+
+- Text
+- List
+- Video
+- Heading
+- Quote
 
 = Compatibility =
 
 This ACF field type is compatible with:
 * ACF 5
-* ACF 4
 
 == Installation ==
 
